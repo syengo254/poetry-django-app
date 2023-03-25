@@ -23,9 +23,6 @@ services:
       - .env
     ports:
       - "8000:8000"
-    command:
-      - python manage.py migrate --noinput
-      - python manage.py runserver 0.0.0.0:8000
     depends_on:
       - app_db
 
@@ -35,4 +32,4 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './data/db'
+      device: './.data'
