@@ -4,7 +4,7 @@ services:
   app_db:
     image: postgres:13.2
     volumes:
-      - db_data:/var/lib/postgresql/data/
+      - db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=pollsapp
       - POSTGRES_USER=syengo
@@ -13,6 +13,8 @@ services:
   app_django:
     build: .
     working_dir: /code
+    volumes:
+      - .:/code
     environment:
       - POSTGRES_DB=pollsapp
       - POSTGRES_USER=syengo
@@ -21,8 +23,16 @@ services:
       - .env
     ports:
       - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
+    command:
+      - python manage.py migrate --noinput
+      - python manage.py runserver 0.0.0.0:8000
     depends_on:
       - app_db
 
-volumes: db_data
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './data/db'
