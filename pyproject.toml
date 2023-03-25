@@ -2,7 +2,7 @@
 name = "poetry-django"
 version = "0.1.0"
 description = "A poetry django polls app"
-authors = ["David Syengo <d.syengo@institute.global>"]
+authors = ["David Syengo <david.syengo019@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{include = "poetry_django"}]
@@ -13,6 +13,9 @@ django = "^4.1.7"
 dj-database-url = "^1.2.0"
 psycopg = "^3.1.8"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
 
 [build-system]
 requires = ["poetry-core"]
