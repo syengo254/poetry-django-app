@@ -16,10 +16,10 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg ma
 
 WORKDIR /code
 
-COPY poetry.lock pyproject.toml /code/
-
 RUN pip install poetry
 RUN poetry config virtualenvs.create false
+
+COPY poetry.lock pyproject.toml /code/
 
 RUN poetry install --no-root -n --no-ansi
 
