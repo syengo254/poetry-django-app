@@ -10,7 +10,7 @@ This is a small django polls app that uses poetry as dependency manager and posg
 
 ### Instructions to run
 1. After satisfying the above requirements,create a .env file from the .env.template and set the required vars.
-2. Then simply run in terminal:
+2. Create a .data folder on project root, then simply run in terminal:
     ```bash
     docker-compose up --build
     ```
