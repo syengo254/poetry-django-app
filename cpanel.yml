@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mrcictfb/public_html/devtuts/
+    - /bin/cp -R ./* $DEPLOYPATH
